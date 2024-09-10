@@ -10,11 +10,9 @@ class Solution:
             return head
         proxy_head = head
         while (proxy_head.next):
-            print(proxy_head.val)
             tempNode = ListNode()
             tempNode.val = gcd(proxy_head.val, proxy_head.next.val)
-            print(tempNode.val)
             tempNode.next = proxy_head.next
             proxy_head.next = tempNode
-            proxy_head = proxy_head.next.next
+            proxy_head = tempNode.next
         return head
