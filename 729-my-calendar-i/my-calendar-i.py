@@ -8,8 +8,6 @@ class MyCalendar:
             self.schedule.append([start, end])
             return True
         else:
-            # print(self.schedule)
-            # print(start, end)
             for i in self.schedule:
                 if i[0] <= start < i[1] or i[0] < end <= i[1]:
                     return False
