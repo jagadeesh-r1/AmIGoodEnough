@@ -10,8 +10,6 @@ class Solution:
         }
 
         stack = []
-        # if len(s) == 1:
-        #     return False
         for i in s:
             if i not in ['}', ']', ')']:
                 stack.append(i)
