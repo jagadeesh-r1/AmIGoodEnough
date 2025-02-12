@@ -25,11 +25,26 @@
 
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
-        max_arr = [0] * 82
-        ans = -1
-        for x in nums:
-            digit_sum = sum(int(d) for d in str(x))
-            if max_arr[digit_sum] != 0:
-                ans = max(ans, x + max_arr[digit_sum])
-            max_arr[digit_sum] = max(max_arr[digit_sum], x)
-        return ans
+        map=defaultdict(list)
+        for num in nums:
+            s=0
+            tmp=num
+            while tmp>0:
+                s+=tmp%10
+                tmp=tmp//10
+            map[s].append(num)
+        max_sum=-1
+        for k in map.keys():
+            l=map[k]
+            if len(l)<2:
+                continue
+            m1,m2=0,0
+            for num in l:
+                if num>m1:
+                    m2=m1
+                    m1=num
+                elif num>m2:
+                    m2=num
+            max_sum=max(max_sum,m1+m2)
+
+        return max_sum
