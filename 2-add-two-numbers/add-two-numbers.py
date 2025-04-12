@@ -19,7 +19,7 @@ class Solution:
                 l2 = l2.next
 
 
-            print(sum)
+            # print(sum)
             temp.val = sum%10
             excess = sum//10
             dummy.next = temp
